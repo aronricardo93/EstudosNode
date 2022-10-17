@@ -37,6 +37,14 @@ app.post('/add', function(req,res){
     })
 })
 
+app.get("/deletar/:id",function(req,res){
+    post.destroy({where: {'id':  req.params.id}}).then(function(){
+        res.send('Post ' + req.params.id + ' deletado com sucesso!')
+    }).catch(function(erro){
+        res.send('Post não encontrado!')
+    })
+})
+
 /*app.get("/", function(req,res){
     res.sendFile(__dirname + "/html/index.html")
 })
